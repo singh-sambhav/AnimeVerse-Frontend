@@ -1,0 +1,105 @@
+// .listItem {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-evenly;
+//     width: 100%;
+//     height: 180px;
+//     background-color: var(--main-color);
+//     cursor: pointer;
+//     color: white;
+//     display: flex;
+//     align-items: center;
+//     padding: 10px;
+//     position: relative;
+//     transition: transform 0.3s ease; /* Add transition for hover effect */
+    
+//     img {
+//       margin-left:10px;
+//       margin-right: 20px;
+//       width: 150px;
+//       height: 90%;
+//       // object-fit: cover;
+//       border-radius: 5%;
+//     }
+
+//     .itemInfo {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: space-between;
+//       font-size: 0.8rem;
+//       margin-top: 20px;
+//       color:white;
+//       z-index: 1;
+//     }
+  
+//     &:hover {
+//       transform: scale(1.5); /* Increase scale on hover for a slight zoom effect */
+//       z-index: 155;
+//       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Add box shadow on hover */
+//       opacity: 1;
+//     }
+//   }
+.listItem {
+  position: relative;
+
+  .imageWrapper {
+    display: inline-block;
+
+    .Alex {
+      width: 100%;
+      height: 150px;
+      transition: transform 0.3s ease;
+    }
+
+    .itemInfo {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 0;
+      bottom: -100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 10px;
+      transition: bottom 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+
+      .icon {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &:hover .imageWrapper {
+    .Alex {
+      transform: scale(1.1);
+    }
+
+    .itemInfo {
+      bottom: 0;
+      opacity: 1;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  }
+
+  .video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center; // Focus on the center of the video
+
+    &.focus {
+      transform: translate(-50%, -50%) scale(1.5); // Scale up the focused video
+    }
+  }
+}
